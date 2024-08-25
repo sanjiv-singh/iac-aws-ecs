@@ -2,6 +2,7 @@ export AWS_PAGER=""
 
 CLUSTER_NAME="test-cluster"
 FAMILY_PREFIX="nginx-cont"
+TARGET_CONTAINER="nginx-container"
 
 VPC_ID=$(
     aws cloudformation describe-stacks \
@@ -52,7 +53,7 @@ echo "Tasks ARN = $TASK_ARN"
 LB=$(
     aws elbv2 create-load-balancer \
         --name $FAMILY_PREFIX-LB  \
-	--scheme internet-facing \
+	    --scheme internet-facing \
         --subnets $PUBLIC_SUBNET_ID1 $PUBLIC_SUBNET_ID2 \
         --security-groups $SG_ID \
         --output text \
@@ -77,7 +78,7 @@ IP=$(
         --cluster $CLUSTER_NAME \
         --tasks $TASK_ARN \
         --output text \
-        --query "tasks[*].containers[*].networkInterfaces[*].privateIpv4Address"
+        --query "tasks[*].containers[?name=='$TARGET_CONTAINER'].networkInterfaces[*].privateIpv4Address"
 )
 echo "Task IP Address = $IP"
 

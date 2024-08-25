@@ -31,7 +31,7 @@ for taskDefnArn in $(aws ecs list-task-definitions --family-prefix $FAMILY_PREFI
 done
 
 aws ecs register-task-definition    	\
-    	--cli-input-json file://./containers.json
+    	--cli-input-json file://./multicontainer.json
 
 VPC_ID=$(
     aws cloudformation describe-stacks \
