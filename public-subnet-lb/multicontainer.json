@@ -17,7 +17,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/nginx-container",
+                    "awslogs-group": "/ecs/labcorp",
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
@@ -42,7 +42,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/redis-container",
+                    "awslogs-group": "/ecs/labcorp",
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
@@ -59,7 +59,7 @@
         }
     ],
     "family": "nginx-cont",
-    "executionRoleArn": "arn:aws:iam::153977823348:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::732106906880:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "FARGATE"
