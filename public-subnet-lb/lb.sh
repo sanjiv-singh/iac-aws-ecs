@@ -2,7 +2,7 @@ export AWS_PAGER=""
 
 CLUSTER_NAME="test-cluster"
 FAMILY_PREFIX="nginx-cont"
-TARGET_CONTAINER="nginx-container"
+TARGET_CONTAINER="signal-container"
 
 VPC_ID=$(
     aws cloudformation describe-stacks \

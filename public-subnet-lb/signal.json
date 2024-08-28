@@ -1,0 +1,38 @@
+{
+    "containerDefinitions": [{
+	    "name": "signal-container",
+	    "image": "732106906880.dkr.ecr.ap-south-1.amazonaws.com/testing/pv-signal-management:ecr-release-0.17-test",
+	    "cpu": 0,
+	    "portMappings": [{
+    	    "name": "signal-container-80-tcp",
+    	    "containerPort": 80,
+    	    "hostPort": 80,
+    	    "protocol": "tcp",
+    	    "appProtocol": "http"
+	    }],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/labcorp",
+                "awslogs-create-group": "true",
+                "awslogs-region": "ap-south-1",
+                "awslogs-stream-prefix": "ecs"
+            },
+            "secretOptions": []
+        },
+	    "essential": true
+    }],
+    "family": "nginx-cont",
+    "executionRoleArn": "arn:aws:iam::732106906880:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+	    "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+	    "cpuArchitecture": "X86_64",
+	    "operatingSystemFamily": "LINUX"
+    }
+}
+
