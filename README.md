@@ -1,4 +1,4 @@
 # iac-aws-ecs
 AWS Infrastructure as Code for ECS Fargate
 
-![alt text](public-subnet-lb/pv-signal-loud.png "Cloud Architecture")
+![Image not found.](public-subnet-lb/pv-signal-cloud.png "Cloud Architecture")
